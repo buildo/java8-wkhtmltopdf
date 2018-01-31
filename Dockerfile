@@ -15,5 +15,3 @@ RUN tar Jxvf wkhtmltopdf.tar.xz
 RUN mv wkhtmltox/bin/wkhtmltopdf /usr/local/bin/wkhtmltopdf
 RUN rm -rf wkhtmlto*
 
-EXPOSE 8080
-
