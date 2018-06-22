@@ -4,14 +4,12 @@ FROM java:8
 RUN apt-get update \
     && apt-get install -y \
         curl \
-        libxrender1 \
-        libfontconfig \
-        libxtst6 \
-        xz-utils \
+        xfonts-base \
+        xfonts-75dpi \
     && apt-get clean
 
-RUN curl "https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.3/wkhtmltox-0.12.3_linux-generic-amd64.tar.xz" -L -o "wkhtmltopdf.tar.xz"
-RUN tar Jxvf wkhtmltopdf.tar.xz
-RUN mv wkhtmltox/bin/wkhtmltopdf /usr/local/bin/wkhtmltopdf
+RUN curl "https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox_0.12.5-1.jessie_amd64.deb" -L -o "wkhtmltopdf.deb"
+RUN dpkg -i ./wkhtmltopdf.deb
+RUN apt-get install -f
 RUN rm -rf wkhtmlto*
 
