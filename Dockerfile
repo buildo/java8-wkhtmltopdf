@@ -1,4 +1,4 @@
-FROM java:8
+FROM openjdk:8
 
 # Download and install wkhtmltopdf
 RUN apt-get update \
@@ -8,7 +8,7 @@ RUN apt-get update \
         xfonts-75dpi \
     && apt-get clean
 
-RUN curl "https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox_0.12.5-1.jessie_amd64.deb" -L -o "wkhtmltopdf.deb"
+RUN curl "https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox_0.12.5-1.stretch_amd64.deb" -L -o "wkhtmltopdf.deb"
 RUN dpkg -i ./wkhtmltopdf.deb
 RUN apt-get install -f
 RUN rm -rf wkhtmlto*
