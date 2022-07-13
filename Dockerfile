@@ -13,7 +13,7 @@ RUN apt-get update \
         libxrender1 \
     && apt-get clean
 
-RUN curl "https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox_0.12.5-1.stretch_amd64.deb" -L -o "wkhtmltopdf.deb" \
+RUN curl "https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-2/wkhtmltox_0.12.6.1-2.bullseye_amd64.deb" -L -o "wkhtmltopdf.deb" \
     && dpkg -i ./wkhtmltopdf.deb \
     && apt-get install -f \
     && rm -rf wkhtmlto*
